@@ -23,6 +23,8 @@
     "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@ngneat/overview": "6.1.1",
+    "@ngxpert/hot-toast": "^4.2.0",
     "@tailwindcss/postcss": "^4.1.7",
     "chart.js": "^4.3.0",
     "ng2-charts": "^8.0.0",

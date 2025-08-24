@@ -1,16 +1,19 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { catchError, EMPTY, filter, Observable, take, tap } from 'rxjs';
 
+import { Result } from '@models/entities/result.model';
 import { McqTest } from '@models/response/mcq-test.model';
 import { McqAnswerRequest } from '@models/payload/mcq-answer-request.model';
 import { CheckTestRequest } from '@models/payload/check-test-request.model';
+import { TestRequestResponse } from '@models/response/test-request.response.model';
 
+import { ToasterMessageConstants } from '@constants/toaster-message.constant';
+
+import { HotToastService } from '@ngxpert/hot-toast';
 import { QuizService } from '@features/quiz/services/quiz.service';
 import { ApiHttpService } from '@shared/services/api-http.service';
-import { TestRequestResponse } from '@models/response/test-request.response.model';
-import { Result } from '@models/entities/result.model';
 
 @Component({
   selector: 'app-quiz-diplay',
@@ -26,6 +29,7 @@ export class QuizDiplayComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private toast: HotToastService,
     private quizService: QuizService,
     private apiHttpService: ApiHttpService
   ) {
@@ -82,7 +86,7 @@ export class QuizDiplayComponent {
 
   checkTest() {
     const checkTestRequest: CheckTestRequest = {
-      submissionTime: new Date(),
+      testRequestId: this.testRequestId,
       mcqs: this.answeredMcqs,
     };
     this.apiHttpService
@@ -92,9 +96,11 @@ export class QuizDiplayComponent {
         filter((res: Result) => !!res),
         tap((res: Result) => {
           console.log('CHeck', res);
+          this.toast.success(ToasterMessageConstants.SUBMIT_TEST);
           this.router.navigate([`quiz/result/${res?.id}`]);
         }),
         catchError(() => {
+          this.toast.error(ToasterMessageConstants.ERROR_SUBMITTING_TEST);
           return EMPTY;
         })
       )

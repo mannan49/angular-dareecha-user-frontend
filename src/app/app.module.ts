@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { MatIconModule } from '@angular/material/icon';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
 import { AuthInterceptor } from '@shared/utils/auth.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +14,6 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
-import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent, AuthLayoutComponent, MainLayoutComponent],
@@ -25,6 +25,7 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
       multi: true,
     },
     provideCharts(withDefaultRegisterables()),
+    provideHotToastConfig(),
   ],
   bootstrap: [AppComponent],
 })

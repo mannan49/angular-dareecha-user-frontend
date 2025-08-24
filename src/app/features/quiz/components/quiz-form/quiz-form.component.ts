@@ -6,7 +6,6 @@ import { take, filter, tap, catchError, EMPTY } from 'rxjs';
 
 import { Select } from '@models/shared/select.model';
 import { Chapter } from '@models/entities/chapter.model';
-import { McqTest } from '@models/response/mcq-test.model';
 import { EntityFilter } from '@models/payload/entity-filter.model';
 import { PagedResponse } from '@models/response/paged-response.model';
 import { TestRequestResponse } from '@models/response/test-request.response.model';
@@ -14,7 +13,9 @@ import { TestRequestResponse } from '@models/response/test-request.response.mode
 import { BoardsList } from '@constants/boards-list.constants';
 import { GradesList } from '@constants/grades-list.constants';
 import { SubjectsList } from '@constants/subjects-list.constants';
+import { ToasterMessageConstants } from '@constants/toaster-message.constant';
 
+import { HotToastService } from '@ngxpert/hot-toast';
 import { ApiHttpService } from '@shared/services/api-http.service';
 import { QuizService } from '@features/quiz/services/quiz.service';
 
@@ -33,6 +34,7 @@ export class QuizFormComponent {
 
   constructor(
     private router: Router,
+    private toast: HotToastService,
     private formBuilder: FormBuilder,
     private quizService: QuizService,
     private apiHttpService: ApiHttpService
@@ -127,9 +129,11 @@ export class QuizFormComponent {
         tap((res: TestRequestResponse) => {
           console.log('REs', res);
           this.quizService.setQuizQuestions(res?.mcqs);
+          this.toast.success(ToasterMessageConstants.START_TEST);
           this.router.navigate([`quiz/attempt/${res?.testRequestId}`]);
         }),
         catchError(() => {
+          this.toast.error(ToasterMessageConstants.ERROR_STARTING_TEST);
           return EMPTY;
         })
       )
