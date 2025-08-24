@@ -25,7 +25,9 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
       multi: true,
     },
     provideCharts(withDefaultRegisterables()),
-    provideHotToastConfig(),
+    provideHotToastConfig({
+      duration: 1500
+    }),
   ],
   bootstrap: [AppComponent],
 })

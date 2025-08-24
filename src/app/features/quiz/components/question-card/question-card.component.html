@@ -5,8 +5,9 @@
 
 <div class="grid md:grid-cols-2 gap-2">
   @for(option of question?.options; track $index){
-    <div class="flex">
-        <input type="radio" [name]="question?.id" [id]="option?.optionId" [value]="option?.optionId" (change)="onAnswerSelect(option)" />
+    <div class="flex cursor-pointer" (click)="onAnswerSelect(option)">
+        <input type="radio" [name]="question?.id" [id]="option?.optionId" [checked]="option?.optionId === selectedOptionId"
+          [value]="option?.optionId" (change)="onAnswerSelect(option)" />
         <label [for]="option?.optionId" class="cursor-pointer ml-2"> {{ option?.optionId }}. {{ option?.text }} </label>
     </div>
   }

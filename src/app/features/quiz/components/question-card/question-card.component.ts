@@ -13,12 +13,14 @@ import { McqAnswerRequest } from '@models/payload/mcq-answer-request.model';
 export class QuestionCardComponent {
   @Input() index: number;
   @Input() question: McqTest;
-
   @Output() answerSelected = new EventEmitter<McqAnswerRequest>();
 
+  selectedOptionId = String.Empty;
+
   onAnswerSelect(option: McqOption) {
+    this.selectedOptionId = option?.optionId;
     this.answerSelected.emit({
-      mcqId: this.question.id,
+      mcqId: this.question?.id,
       chosenOptionId: option?.optionId,
       chosenOptionText: option?.text,
     });

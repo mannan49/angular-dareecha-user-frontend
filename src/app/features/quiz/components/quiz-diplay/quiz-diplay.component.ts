@@ -5,6 +5,7 @@ import { catchError, EMPTY, filter, Observable, take, tap } from 'rxjs';
 
 import { Result } from '@models/entities/result.model';
 import { McqTest } from '@models/response/mcq-test.model';
+import { DialogData } from '@models/shared/dialog-data.model';
 import { McqAnswerRequest } from '@models/payload/mcq-answer-request.model';
 import { CheckTestRequest } from '@models/payload/check-test-request.model';
 import { TestRequestResponse } from '@models/response/test-request.response.model';
@@ -12,6 +13,7 @@ import { TestRequestResponse } from '@models/response/test-request.response.mode
 import { ToasterMessageConstants } from '@constants/toaster-message.constant';
 
 import { HotToastService } from '@ngxpert/hot-toast';
+import { DialogService } from '@shared/services/dialog.service';
 import { QuizService } from '@features/quiz/services/quiz.service';
 import { ApiHttpService } from '@shared/services/api-http.service';
 
@@ -31,6 +33,7 @@ export class QuizDiplayComponent {
     private route: ActivatedRoute,
     private toast: HotToastService,
     private quizService: QuizService,
+    private dialogService: DialogService,
     private apiHttpService: ApiHttpService
   ) {
     this.quizQuestions$ = this.quizService.quizQuestions$;
@@ -74,10 +77,20 @@ export class QuizDiplayComponent {
 
   onSubmitButtonClick() {
     this.quizQuestions$.subscribe((questions: McqTest[]) => {
-      console.log('Questions', questions);
+      const dialogData: DialogData = {
+        title: 'Submit Test',
+        message: `You have ${ questions?.length - this.answeredMcqs?.length} 
+          pending mcqs left. Are you sure you want to submit the test?`,
+        confirmText: 'Submit',
+        cancelText: 'Cancel',
+        confirmButtonClass: 'bg-secondary',
+      };
       if (this.answeredMcqs?.length < questions?.length) {
-        console.log('Are you sure?');
-        return;
+        this.dialogService.confirm(dialogData).subscribe((confirmed: boolean) => {
+          if (confirmed) {
+            this.checkTest();
+          }
+        });
       } else {
         this.checkTest();
       }
