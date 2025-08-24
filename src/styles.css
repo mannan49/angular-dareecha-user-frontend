@@ -10,7 +10,7 @@ body {
 body {
   margin: 0;
   background-color: #f8f5f2;
-  color: #f8f5f2;
+  color: black;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
@@ -20,7 +20,7 @@ body {
 
 @theme {
   --color-stroke: #232323;
-  --color-main: #fffffe;
+  --color-main: #ffffff;
   --color-primary: #078080;
   --color-secondary: #f45d48;
   --color-tertiary: #f8f5f2;
@@ -86,5 +86,27 @@ input[type='number'] {
 
 input[type='radio']:checked + label {
   background-color: var(--tertiary-color);
-  color: var(--main-color);
+  color: var(--primary-color);
 }
+
+.hot-toast-bar-base {
+  min-width: 400px !important;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.5;
+}
+
+
+/* To control font size, spacing, etc.:
+
+.hot-toast-message {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.hot-toast-icon {
+  margin-right: 8px;
+} */

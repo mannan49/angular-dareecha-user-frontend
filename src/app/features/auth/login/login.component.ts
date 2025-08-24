@@ -32,7 +32,7 @@ export class LoginComponent {
   initializeForm() {
     this.loginForm = this.formBuilder.group({
       email: [String.Empty, [Validators.required, customEmailValidator()]],
-      password: [String.Empty, [Validators.required, passwordStrengthValidator()]],
+      password: [String.Empty, [Validators.required]],
     });
   }
 

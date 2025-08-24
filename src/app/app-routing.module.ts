@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -19,13 +19,17 @@ const routes: Routes = [
       {
         path: 'notes',
         loadChildren: () => import('@features/notes/notes.module').then(m => m.NotesModule),
+      },
+      {
+        path: 'quiz',
+        loadChildren: () => import('@features/quiz/quiz.module').then(m => m.QuizModule),
       }
     ],
   },
   {
     path: 'auth',
     component: AuthLayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: { guestOnly: true },
     loadChildren: () => import('@features/auth/auth.module').then(m => m.AuthModule),
   },
