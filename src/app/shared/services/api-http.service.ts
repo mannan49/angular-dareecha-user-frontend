@@ -4,8 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Note } from '@models/entities/note.model';
-import { NoteFilter } from '@models/payload/note-filter.model';
+import { Result } from '@models/entities/result.model';
+import { Chapter } from '@models/entities/chapter.model';
+import { EntityFilter } from '@models/payload/entity-filter.model';
 import { PagedResponse } from '@models/response/paged-response.model';
+import { CheckTestRequest } from '@models/payload/check-test-request.model';
+import { TestRequestResponse } from '@models/response/test-request.response.model';
 
 import { ApiUrlService } from './api-url.service';
 
@@ -43,7 +47,27 @@ export class ApiHttpService {
   //   return this.httpClient.post<{ message: string }>(ApiUrlService.resetPasswordUrl(), payload);
   // }
 
-  getNotesByFilter(filter: NoteFilter) : Observable<PagedResponse<Note>> {
+  getNotesByFilter(filter: EntityFilter): Observable<PagedResponse<Note>> {
     return this.httpClient.post<PagedResponse<Note>>(ApiUrlService.getNotesByFilter(), filter);
+  }
+
+  getChaptersByFilter(filter: EntityFilter): Observable<PagedResponse<Chapter>> {
+    return this.httpClient.post<PagedResponse<Chapter>>(ApiUrlService.getChaptersByFilterUrl(), filter);
+  }
+
+  generateTest(filter: EntityFilter): Observable<TestRequestResponse> {
+    return this.httpClient.post<TestRequestResponse>(ApiUrlService.generateTestUrl(), filter);
+  }
+
+  getTestRequestById(id: string): Observable<TestRequestResponse> {
+    return this.httpClient.get<TestRequestResponse>(ApiUrlService.getTestRequestByIdUrl(id));
+  }
+
+  getResultById(id: string): Observable<Result> {
+    return this.httpClient.get<Result>(ApiUrlService.getResultByIdUrl(id));
+  }
+
+  checkTest(payload: CheckTestRequest): Observable<Result> {
+    return this.httpClient.post<Result>(ApiUrlService.checkTestUrl(), payload);
   }
 }

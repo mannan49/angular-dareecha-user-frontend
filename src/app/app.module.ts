@@ -13,6 +13,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent, AuthLayoutComponent, MainLayoutComponent],
@@ -23,6 +24,7 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
       useClass: AuthInterceptor,
       multi: true,
     },
+    provideCharts(withDefaultRegisterables()),
   ],
   bootstrap: [AppComponent],
 })

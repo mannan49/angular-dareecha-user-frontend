@@ -41,4 +41,24 @@ export class ApiUrlService {
   static getNotesByFilter() : string{
     return `${this.apiBaseUrl}/Note/advance-search`;
   }
+
+  static getChaptersByFilterUrl(): string {
+    return `${this.apiBaseUrl}/Chapter/advance-search`;
+  }
+
+  static generateTestUrl(): string {
+    return `${this.apiBaseUrl}/TestRequest`;
+  }
+
+  static getTestRequestByIdUrl(id: string): string {
+    return `${this.apiBaseUrl}/TestRequest/${id}`;
+  }
+
+  static getResultByIdUrl(id: string): string {
+    return `${this.apiBaseUrl}/Result/${id}`;
+  }
+
+  static checkTestUrl(): string {
+    return `${this.apiBaseUrl}/Result`;
+  }
 }

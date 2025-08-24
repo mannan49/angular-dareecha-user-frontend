@@ -1,7 +1,7 @@
 import { Attachment } from './attachment.model';
 
 export class McqOption {
-  mcqId: string;
+  optionId: string;
   text: string;
   media: Attachment;
 }

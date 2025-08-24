@@ -1,6 +1,6 @@
-<div class="my-4 flex flex-col">
+<div class="my-2 flex flex-col">
   @if(label){
-  <label for="{{ controlName }}" class="font-bold text-xl">{{ label }}:</label>
+  <label for="{{ controlName }}" [ngClass]="[labelStyles]">{{ label }}:</label>
   }
   <input
     [formControl]="control"
@@ -9,7 +9,7 @@
     [type]="type"
     #inputValidator="appValidate"
     [ngClass]="{ 'border-red-600': inputValidator.showErrors }"
-    class="border-primary border-solid border-2 rounded-full px-4 py-1 focus:border-primary focus:outline-none"
+    [ngClass]="[inputStyles]"
   />
   <app-error-message class="ml-1" [show]="inputValidator.showErrors" [errorKey]="inputValidator.firstErrorKey"></app-error-message>
 </div>

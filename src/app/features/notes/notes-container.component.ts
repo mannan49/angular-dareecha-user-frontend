@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { catchError, EMPTY, filter, take, tap } from 'rxjs';
 
 import { Note } from '@models/entities/note.model';
-import { NoteFilter } from '@models/payload/note-filter.model';
+import { EntityFilter } from '@models/payload/entity-filter.model';
 import { PagedResponse } from '@models/response/paged-response.model';
 
 import { ApiHttpService } from '@shared/services/api-http.service';
@@ -20,10 +20,10 @@ export class NotesContainerComponent {
   constructor(private apiHttpService: ApiHttpService) {}
 
   ngOnInit() {
-    this.fetchNotes(new NoteFilter());
+    this.fetchNotes(new EntityFilter());
   }
 
-  fetchNotes(payload: NoteFilter) {
+  fetchNotes(payload: EntityFilter) {
     this.apiHttpService
       .getNotesByFilter(payload)
       .pipe(
@@ -41,7 +41,7 @@ export class NotesContainerComponent {
   }
 
   handleFiltersSelection(subject: string) {
-    const noteFilter = new NoteFilter();
+    const noteFilter = new EntityFilter();
     noteFilter.subject = subject;
     this.fetchNotes(noteFilter);
   }

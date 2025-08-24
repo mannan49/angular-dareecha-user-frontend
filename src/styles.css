@@ -30,7 +30,6 @@ input,
 textarea,
 select {
   box-sizing: border-box;
-  width: 100%;
   display: inline-block;
 }
 

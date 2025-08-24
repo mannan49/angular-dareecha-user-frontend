@@ -1,4 +1,4 @@
-<div class="my-4 flex flex-col">
+<div class="my-2 flex flex-col">
   @if (label) {
   <label for="{{ controlName }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ label }}:</label>
   }
@@ -8,11 +8,11 @@
     [ngClass]="{ 'border-red-600': inputValidator.showErrors }"
     form_control
     #inputValidator="appValidate"
-    class="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-tertiary focus:border-tertiary block w-full p-2.5 dark:bg-primary dark:border-primary dark:placeholder-gray-400 dark:text-white dark:focus:ring-tertiary dark:focus:border-tertiary"
+    class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
   >
-    <option class="text-white" value="" selected>{{ placeholder }}</option>
+    <option class="text-black" value="" selected>{{ placeholder }}</option>
     @for (option of options; track option[valueField]) {
-    <option class="text-white" [value]="option[valueField]">
+    <option class="text-black" [value]="option[valueField]">
       {{ option[displayField] }}
     </option>
     }

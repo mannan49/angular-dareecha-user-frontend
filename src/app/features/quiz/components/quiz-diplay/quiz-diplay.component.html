@@ -1,0 +1,13 @@
+<div class="mx-auto lg:w-2/3">
+    <div>
+        <div class="flex flex-col justify-center items-center pb-8">
+            <h1 class="text-2xl font-bold mb-2 mt-4">Attempt your Quiz</h1>
+            @for(question of (quizQuestions$ | async); track $index){
+                <div class="shadow-2xl bg-main mt-4 rounded-lg px-2 lg:px-8 py-4 w-full">
+                    <app-question-card [question]="question" [index]="$index" (answerSelected)="handleAnswerSelection($event)" />
+                </div>
+            }
+            <app-button label="Submit Test" (click)="onSubmitButtonClick()" className="mx-auto mt-4 w-full bg-primary" />
+        </div>
+    </div>
+</div>
