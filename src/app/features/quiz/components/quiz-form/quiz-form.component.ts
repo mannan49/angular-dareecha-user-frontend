@@ -10,6 +10,7 @@ import { EntityFilter } from '@models/payload/entity-filter.model';
 import { PagedResponse } from '@models/response/paged-response.model';
 import { TestRequestResponse } from '@models/response/test-request.response.model';
 
+import { SortOrder } from '@enums/sort-order.enum';
 import { BoardsList } from '@constants/boards-list.constants';
 import { GradesList } from '@constants/grades-list.constants';
 import { SubjectsList } from '@constants/subjects-list.constants';
@@ -117,6 +118,7 @@ export class QuizFormComponent {
     filter.subject = formValue?.subject;
     filter.chapterIds = [formValue?.chapter];
     filter.limit = formValue?.numberOfMcqs;
+    filter.sortOrder = SortOrder.RANDOM;
     return filter;
   }
 
