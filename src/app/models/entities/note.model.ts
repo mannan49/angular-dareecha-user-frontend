@@ -3,16 +3,16 @@ import { Attachment } from '../shared/attachment.model';
 import { BaseEntity } from './base-entity.model';
 
 export class Note extends BaseEntity {
-  title: string;
-  description: string;
-  grade: string;
-  subject: string;
-  chapter: string;
-  topic: string;
-  type: string;
-  board: string;
-  file: Attachment;
-  coverImage: Attachment;
-  uploadedBy: string;
-  annotations: Annotation[];
+  Title: string;
+  Description: string;
+  Grade: string;
+  Subject: string;
+  Chapter: string;
+  Topic: string;
+  Type: string;
+  Board: string;
+  File: Attachment;
+  CoverImage: Attachment;
+  UploadedBy: string;
+  Annotations: Annotation[];
 }

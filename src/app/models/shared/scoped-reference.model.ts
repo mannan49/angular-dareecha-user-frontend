@@ -1,5 +1,5 @@
 export class ScopedReference {
-  refId: string;
-  text: string;
-  system: string;
+  RefId: string;
+  Text: string;
+  System: string;
 }

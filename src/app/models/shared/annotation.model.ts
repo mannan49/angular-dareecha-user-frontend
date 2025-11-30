@@ -1,5 +1,5 @@
 export class Annotation {
-  author: string;
-  text: string;
-  time: Date;
+  Author: string;
+  Text: string;
+  Time: Date;
 }

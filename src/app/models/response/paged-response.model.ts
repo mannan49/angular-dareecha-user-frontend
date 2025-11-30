@@ -1,9 +1,9 @@
 export class PagedResponse<T> {
-  items: T[];
-  pageIndex: number;
-  pageSize: number;
-  totalCount: number;
-  totalPages: number;
-  hasPreviousPage: boolean;
-  hasNextPage: boolean;
+  Items: T[];
+  PageIndex: number;
+  PageSize: number;
+  TotalCount: number;
+  TotalPages: number;
+  HasPreviousPage: boolean;
+  HasNextPage: boolean;
 }

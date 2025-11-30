@@ -1,6 +1,6 @@
 import { McqTest } from './mcq-test.model';
 
 export class TestRequestResponse {
-  testRequestId: string;
-  mcqs: McqTest[];
+  TestRequestId: string;
+  Mcqs: McqTest[];
 }

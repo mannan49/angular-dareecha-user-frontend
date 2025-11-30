@@ -48,6 +48,6 @@ export class MultiSelectComponent {
   }
 
   compareChapters = (c1: ScopedReference, c2: ScopedReference): boolean => {
-    return c1 && c2 ? c1.refId === c2.refId : c1 === c2;
+    return c1 && c2 ? c1.RefId === c2.RefId : c1 === c2;
   };
 }

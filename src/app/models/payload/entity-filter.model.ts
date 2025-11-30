@@ -1,12 +1,12 @@
 import { BaseFilter } from './base-filter.model';
 
 export class EntityFilter extends BaseFilter {
-  board?: string;
-  boards?: string[];
-  subject?: string;
-  query?: string;
-  types?: string[];
-  grade?: string;
-  chapterIds?: string[];
-  difficultyLevel?: string;
+  Board?: string;
+  Boards?: string[];
+  Subject?: string;
+  Query?: string;
+  Types?: string[];
+  Grade?: string;
+  ChapterIds?: string[];
+  DifficultyLevel?: string;
 }

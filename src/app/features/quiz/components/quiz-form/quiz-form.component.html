@@ -3,7 +3,7 @@
     <app-select placeholder="Select Your Board" label="Board" controlName="board" [options]="boardsList" (selectionChanged)="handleSelection($event)" />
     <app-select placeholder="Select a Subject" label="Subject" controlName="subject" [options]="subjectsList" (selectionChanged)="handleSelection($event)" />
     <app-select placeholder="Select Chapters" label="Chapters" controlName="chapter" [options]="chaptersList" />
-    <app-input  placeholder="Enter Number a between 5 to 30" label="Number of MCQs" type="number" controlName="numberOfMcqs"
+    <app-input  placeholder="Enter a number between 5 to 30" label="Number of MCQs" type="number" controlName="numberOfMcqs"
       inputStyles = "border-black bg-main border-solid border-1 rounded-full px-4 py-1 focus:border-primary focus:outline-none"
     />
     <app-button label="Start Quiz" type="submit" className = "bg-primary w-1/2 mx-auto my-2" />

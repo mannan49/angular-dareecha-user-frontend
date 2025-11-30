@@ -51,7 +51,7 @@ export class QuizDiplayComponent {
         take(1),
         filter((res: TestRequestResponse) => !!res),
         tap((res: TestRequestResponse) => {
-          this.quizService.setQuizQuestions(res?.mcqs);
+          this.quizService.setQuizQuestions(res?.Mcqs);
         }),
         catchError(() => {
           return EMPTY;
@@ -61,7 +61,7 @@ export class QuizDiplayComponent {
   }
 
   handleAnswerSelection(optionSelected: McqAnswerRequest) {
-    const existingIndex = this.answeredMcqs.findIndex(answeredMcq => answeredMcq?.mcqId === optionSelected?.mcqId);
+    const existingIndex = this.answeredMcqs.findIndex(answeredMcq => answeredMcq?.McqId === optionSelected?.McqId);
 
     console.log('EXisting Index', existingIndex);
 
@@ -99,8 +99,8 @@ export class QuizDiplayComponent {
 
   checkTest() {
     const checkTestRequest: CheckTestRequest = {
-      testRequestId: this.testRequestId,
-      mcqs: this.answeredMcqs,
+      TestRequestId: this.testRequestId,
+      Mcqs: this.answeredMcqs,
     };
     this.apiHttpService
       .checkTest(checkTestRequest)
@@ -110,7 +110,7 @@ export class QuizDiplayComponent {
         tap((res: Result) => {
           console.log('CHeck', res);
           this.toast.success(ToasterMessageConstants.SUBMIT_TEST);
-          this.router.navigate([`quiz/result/${res?.id}`]);
+          this.router.navigate([`quiz/result/${res?.Id}`]);
         }),
         catchError(() => {
           this.toast.error(ToasterMessageConstants.ERROR_SUBMITTING_TEST);

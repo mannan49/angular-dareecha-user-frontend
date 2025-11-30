@@ -1,9 +1,9 @@
 export class BaseFilter {
-  id?: string;
-  uploadedBy?: string;
-  createdOn?: Date;
-  limit?: number;
-  pageIndex?: number;
-  sortOrder?: string;
-  sortField?: string;
+  Id?: string;
+  UploadedBy?: string;
+  CreatedOn?: Date;
+  Limit?: number;
+  PageIndex?: number;
+  SortOrder?: string;
+  SortField?: string;
 }

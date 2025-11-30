@@ -7,6 +7,10 @@ import { environment } from 'src/environments/environment';
 export class ApiUrlService {
   static apiBaseUrl = environment.apiBaseUrl;
 
+  static getUserByIdUrl(id : string) : string {
+    return `${this.apiBaseUrl}/user/${id}`;
+  }
+
   static loginUrl(): string {
     return `${this.apiBaseUrl}/user/login`;
   }

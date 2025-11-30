@@ -1,4 +1,4 @@
 export class Reference {
-  refId: string;
-  text: string;
+  RefId: string;
+  Text: string;
 }

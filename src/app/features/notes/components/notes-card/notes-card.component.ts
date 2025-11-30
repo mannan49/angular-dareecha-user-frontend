@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Note } from '@models/entities/note.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-notes-card',
@@ -9,8 +10,9 @@ import { Note } from '@models/entities/note.model';
 })
 export class NotesCardComponent {
   @Input() note : Note;
+  CLOUD_FRONT_URL = environment.cloudFrontUrl;
 
   onDownlaodButtonClick(){
-    window.open(this.note?.file?.url, '_blank');
+    window.open(this.CLOUD_FRONT_URL + this.note?.File?.Url, '_blank');
   }
 }

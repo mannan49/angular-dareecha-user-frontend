@@ -1,9 +1,9 @@
 export class Otp {
-  code: string;
-  expired: boolean;
-  verified: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  expiresAt: Date;
-  secretKey: string;
+  Code: string;
+  Expired: boolean;
+  Cerified: boolean;
+  CreatedAt: Date;
+  UpdatedAt: Date;
+  ExpiresAt: Date;
+  SecretKey: string;
 }

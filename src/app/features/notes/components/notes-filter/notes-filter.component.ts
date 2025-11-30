@@ -49,9 +49,9 @@ export class NotesFilterComponent {
       }));
     };
 
-    this.gradesList = toSelectList(this.notes.map(note => note?.grade));
-    this.subjectsList = toSelectList(this.notes.map(note => note?.subject));
-    this.chaptersList = toSelectList(this.notes.map(note => note?.chapter));
+    this.gradesList = toSelectList(this.notes.map(note => note?.Grade));
+    this.subjectsList = toSelectList(this.notes.map(note => note?.Subject));
+    this.chaptersList = toSelectList(this.notes.map(note => note?.Chapter));
   }
 
   onSubjectSelection(subject: string){

@@ -30,7 +30,7 @@ export class NotesContainerComponent {
         take(1),
         filter(res => !!res),
         tap((res: PagedResponse<Note>) => {
-          this.notes = res?.items;
+          this.notes = res?.Items;
           console.log(res);
         }),
         catchError(() => {
@@ -42,7 +42,7 @@ export class NotesContainerComponent {
 
   handleFiltersSelection(subject: string) {
     const noteFilter = new EntityFilter();
-    noteFilter.subject = subject;
+    noteFilter.Subject = subject;
     this.fetchNotes(noteFilter);
   }
 }

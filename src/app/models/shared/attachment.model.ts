@@ -1,7 +1,7 @@
 export class Attachment {
-  url: string;
-  contentType: string;
-  title: string;
-  size: number;
-  created: Date;
+  Url: string;
+  ContentType: string;
+  Title: string;
+  Size: number;
+  Created: Date;
 }

@@ -3,11 +3,11 @@ import { Attachment } from '@models/shared/attachment.model';
 import { BaseEntity } from './base-entity.model';
 
 export class Chapter extends BaseEntity {
-  board: string;
-  grade: string;
-  subject: string;
-  name: string;
-  index: number;
-  author: Reference;
+  Board: string;
+  Grade: string;
+  Subject: string;
+  Name: string;
+  Index: number;
+  Author: Reference;
   Media: Attachment;
 }

@@ -42,10 +42,10 @@ export class SignupComponent {
     if (this.signupForm.invalid) return;
     this.loading = true;
     const signupPayload = new SignupPayload();
-    signupPayload.email = this.signupForm.get('email')?.value;
-    signupPayload.name = this.signupForm.get('fullName')?.value;
-    signupPayload.password = this.signupForm.get('password')?.value;
-    signupPayload.phoneNumber = this.signupForm.get('phoneNumber')?.value;
+    signupPayload.Email = this.signupForm.get('email')?.value;
+    signupPayload.Name = this.signupForm.get('fullName')?.value;
+    signupPayload.Password = this.signupForm.get('password')?.value;
+    signupPayload.PhoneNumber = this.signupForm.get('phoneNumber')?.value;
     this.signupUser(signupPayload);
   }
   signupUser(payload: SignupPayload) {

@@ -1,5 +1,5 @@
 export class McqAnswerRequest {
-  mcqId: string;
-  chosenOptionId: string;
-  chosenOptionText: string;
+  McqId: string;
+  ChosenOptionId: string;
+  ChosenOptionText: string;
 }

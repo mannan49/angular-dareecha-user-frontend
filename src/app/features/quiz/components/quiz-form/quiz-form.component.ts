@@ -64,12 +64,12 @@ export class QuizFormComponent {
   constructChapterFilter(): EntityFilter {
     const formValue = this.quizForm.value;
     const filter = new EntityFilter();
-    filter.grade = formValue?.grade;
+    filter.Grade = formValue?.grade;
     if (formValue?.board) {
-      filter.boards = [formValue?.board];
+      filter.Boards = [formValue?.board];
     }
-    filter.subject = formValue?.subject;
-    filter.limit = 200;
+    filter.Subject = formValue?.subject;
+    filter.Limit = 200;
     return filter;
   }
 
@@ -80,10 +80,10 @@ export class QuizFormComponent {
         take(1),
         filter(res => !!res),
         tap((res: PagedResponse<Chapter>) => {
-          this.chaptersList = res?.items?.map(chapter => {
+          this.chaptersList = res?.Items?.map(chapter => {
             return {
-              Display: chapter?.name,
-              Value: chapter?.id,
+              Display: chapter?.Name,
+              Value: chapter?.Id,
             };
           });
         }),
@@ -111,14 +111,14 @@ export class QuizFormComponent {
   constructTestFilter(): EntityFilter {
     const formValue = this.quizForm.value;
     const filter = new EntityFilter();
-    filter.grade = formValue?.grade;
+    filter.Grade = formValue?.grade;
     if (formValue?.board) {
-      filter.boards = [formValue?.board];
+      filter.Boards = [formValue?.board];
     }
-    filter.subject = formValue?.subject;
-    filter.chapterIds = [formValue?.chapter];
-    filter.limit = formValue?.numberOfMcqs;
-    filter.sortOrder = SortOrder.RANDOM;
+    filter.Subject = formValue?.subject;
+    filter.ChapterIds = [formValue?.chapter];
+    filter.Limit = formValue?.numberOfMcqs;
+    filter.SortOrder = SortOrder.RANDOM;
     return filter;
   }
 
@@ -130,9 +130,9 @@ export class QuizFormComponent {
         filter(res => !!res),
         tap((res: TestRequestResponse) => {
           console.log('REs', res);
-          this.quizService.setQuizQuestions(res?.mcqs);
+          this.quizService.setQuizQuestions(res?.Mcqs);
           this.toast.success(ToasterMessageConstants.START_TEST);
-          this.router.navigate([`quiz/attempt/${res?.testRequestId}`]);
+          this.router.navigate([`quiz/attempt/${res?.TestRequestId}`]);
         }),
         catchError(() => {
           this.toast.error(ToasterMessageConstants.ERROR_STARTING_TEST);

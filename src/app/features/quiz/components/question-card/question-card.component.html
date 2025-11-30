@@ -1,14 +1,14 @@
 <div class="flex items-start mb-2">
   <h3 class="font-bold mr-1">{{ index + 1 }}.</h3>
-  <p>{{ question?.statement }}</p>
+  <p>{{ question?.Statement }}</p>
 </div>
 
 <div class="grid md:grid-cols-2 gap-2">
-  @for(option of question?.options; track $index){
+  @for(option of question?.Options; track $index){
     <div class="flex cursor-pointer" (click)="onAnswerSelect(option)">
-        <input type="radio" [name]="question?.id" [id]="option?.optionId" [checked]="option?.optionId === selectedOptionId"
-          [value]="option?.optionId" (change)="onAnswerSelect(option)" />
-        <label [for]="option?.optionId" class="cursor-pointer ml-2"> {{ option?.optionId }}. {{ option?.text }} </label>
+        <input type="radio" [name]="question?.Id" [id]="option?.OptionId" [checked]="option?.OptionId === selectedOptionId"
+          [value]="option?.OptionId" (change)="onAnswerSelect(option)" />
+        <label [for]="option?.OptionId" class="cursor-pointer ml-2"> {{ option?.OptionId }}. {{ option?.Text }} </label>
     </div>
   }
 </div>

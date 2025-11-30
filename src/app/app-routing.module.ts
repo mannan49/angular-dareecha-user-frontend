@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@shared/guard/auth.guard';
 
+import { ApplicationResolver } from '@shared/resolvers/application.resolver';
+
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
@@ -10,6 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
+    resolve : { user: ApplicationResolver },
     // canActivate: [AuthGuard],
     children: [
       {

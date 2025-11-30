@@ -1,7 +1,7 @@
 export class McqResultDto {
-  mcqId: string;
-  statement: string;
-  chosenOptionId: string;
-  correctOptionId: string;
-  isCorrect: boolean;
+  McqId: string;
+  Statement: string;
+  ChosenOptionId: string;
+  CorrectOptionId: string;
+  IsCorrect: boolean;
 }

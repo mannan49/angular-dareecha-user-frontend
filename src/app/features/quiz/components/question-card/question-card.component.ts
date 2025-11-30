@@ -18,11 +18,11 @@ export class QuestionCardComponent {
   selectedOptionId = String.Empty;
 
   onAnswerSelect(option: McqOption) {
-    this.selectedOptionId = option?.optionId;
+    this.selectedOptionId = option?.OptionId;
     this.answerSelected.emit({
-      mcqId: this.question?.id,
-      chosenOptionId: option?.optionId,
-      chosenOptionText: option?.text,
+      McqId: this.question?.Id,
+      ChosenOptionId: option?.OptionId,
+      ChosenOptionText: option?.Text,
     });
   }
 }

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Note } from '@models/entities/note.model';
 import { Result } from '@models/entities/result.model';
 import { Chapter } from '@models/entities/chapter.model';
+import { UserModel } from '@models/response/user-model.model';
 import { EntityFilter } from '@models/payload/entity-filter.model';
 import { PagedResponse } from '@models/response/paged-response.model';
 import { CheckTestRequest } from '@models/payload/check-test-request.model';
@@ -46,6 +47,10 @@ export class ApiHttpService {
   // resetPassword(payload: ResetPasswordPayload): Observable<{ message: string }> {
   //   return this.httpClient.post<{ message: string }>(ApiUrlService.resetPasswordUrl(), payload);
   // }
+
+  getUserById(id: string) : Observable<UserModel>{
+    return this.httpClient.get<UserModel>(ApiUrlService.getUserByIdUrl(id));
+  }
 
   getNotesByFilter(filter: EntityFilter): Observable<PagedResponse<Note>> {
     return this.httpClient.post<PagedResponse<Note>>(ApiUrlService.getNotesByFilter(), filter);

@@ -1,6 +1,6 @@
 export class Address {
-  province: string;
-  city: string;
-  postalCode: number;
-  address: string;
+  Province: string;
+  City: string;
+  PostalCode: number;
+  Address: string;
 }

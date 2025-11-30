@@ -1,6 +1,6 @@
 export class SignupPayload {
-  name: string;
-  email: string;
-  password: string;
-  phoneNumber: string;
+  Name: string;
+  Email: string;
+  Password: string;
+  PhoneNumber: string;
 }

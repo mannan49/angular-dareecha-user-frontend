@@ -1,3 +1,4 @@
+
 <!-- This is header in case of mobile -->
 <div class="h-full md:hidden">
   <div class="flex justify-between items-center px-4 h-full">
@@ -39,7 +40,14 @@
 
 
 <div class="hidden md:block">
-  <div class="flex flex-col gap-6 items-center justify-start py-10">
+  <div class="flex flex-col gap-6 items-center justify-start py-5">
+    @if((user$ | async)?.picture?.url){
+      <img [src]="(user$ | async)?.picture?.url" class="mr-4 w-20 h-20 rounded-full object-cover">
+    } @else {
+      <div class="mx-auto">
+        <span class="icon-user-circle text-8xl mr-4"></span>
+      </div>
+    }
     <div class="w-full px-6 flex justify-start items-center gap-2 lg:mx-12">
       <a class="flex justify-center items-center gap-2" routerLink="/">
         <mat-icon class="material-icons-outlined">home</mat-icon>

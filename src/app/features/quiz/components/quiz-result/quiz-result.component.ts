@@ -38,7 +38,7 @@ export class QuizResultComponent {
           this.result = res;
           this.doughnutChartDatasets = [
             {
-              data: [res.correct, res.wrong, res.unattempted],
+              data: [res?.Correct, res?.Wrong, res?.Unattempted],
               label: 'MCQs',
             },
           ];
